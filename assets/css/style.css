@@ -210,6 +210,41 @@ button {
   inset: 0;
 }
 
+.media-mark {
+  position: absolute;
+  z-index: 4;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.65rem;
+  color: rgba(255, 253, 247, 0.82);
+  border: 1px solid rgba(255, 253, 247, 0.3);
+  background: rgba(10, 10, 8, 0.26);
+  backdrop-filter: blur(8px);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.media-mark--hero {
+  top: calc(var(--header-height) + 1.25rem);
+  right: var(--page-pad);
+}
+
+.media-mark--carousel {
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.media-mark--closing {
+  top: 2rem;
+  right: var(--page-pad);
+}
+
 .home-hero__media img,
 .album-hero__image img {
   width: 100%;
@@ -312,6 +347,10 @@ button {
 .round-link span:last-child {
   margin-left: 0.4rem;
   font-size: 0.9rem;
+}
+
+.round-link span:first-child {
+  white-space: nowrap;
 }
 
 .round-link:hover,
@@ -429,6 +468,7 @@ button {
 }
 
 .project-feature__image {
+  position: relative;
   overflow: hidden;
 }
 
@@ -930,46 +970,10 @@ button {
   text-transform: uppercase;
 }
 
-.photo-credits {
-  grid-column: 2 / -1;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
-}
-
-.photo-credits summary {
+.album-instagram {
+  grid-column: 3;
   width: fit-content;
-  cursor: pointer;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.photo-credits ol {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem 2rem;
-  padding: 1.5rem 0 0;
-  margin: 0;
-  list-style: none;
-}
-
-.photo-credits li {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.7rem;
-}
-
-.photo-credits li > span {
-  opacity: 0.45;
-}
-
-.photo-credits li a {
-  padding: 0;
-  border: 0;
-  letter-spacing: 0;
-  text-transform: none;
+  justify-self: start;
 }
 
 .lightbox {
@@ -994,6 +998,7 @@ button {
 }
 
 .lightbox__figure {
+  position: relative;
   display: flex;
   width: 100%;
   height: 100svh;
@@ -1002,6 +1007,11 @@ button {
   justify-content: center;
   margin: 0;
   padding: 3.5rem 1rem 2rem;
+}
+
+.media-mark--lightbox {
+  top: 4.5rem;
+  right: 1rem;
 }
 
 .lightbox__figure img {
@@ -1157,7 +1167,7 @@ button {
     grid-column: 2;
   }
 
-  .photo-credits {
+  .album-instagram {
     grid-column: 2;
   }
 }
@@ -1346,12 +1356,28 @@ button {
     grid-column: auto;
   }
 
-  .photo-credits {
+  .album-instagram {
     grid-column: auto;
   }
 
-  .photo-credits ol {
-    grid-template-columns: 1fr 1fr;
+  .media-mark {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .media-mark--hero {
+    top: calc(var(--header-height) + 0.9rem);
+    right: var(--page-pad);
+  }
+
+  .media-mark--closing {
+    top: 1rem;
+    right: var(--page-pad);
+  }
+
+  .media-mark--lightbox {
+    top: 4.5rem;
+    right: 1rem;
   }
 
   .lightbox[open] {
@@ -1377,7 +1403,7 @@ button {
   }
 
   .wordmark--footer {
-    font-size: clamp(3.2rem, 17vw, 6rem);
+    font-size: clamp(2.7rem, 12vw, 4.5rem);
   }
 
   .footer-meta {

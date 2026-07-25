@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Photography & Field Notes
-description: Still / Wild is an editorial photography portfolio about remote landscapes, open roads, and the quiet moments between.
+title: Off-road Photography
+description: Spooled Pixels is the off-road and rallycross photography portfolio of Jon Price.
 body_class: home
 ---
 
@@ -10,13 +10,14 @@ body_class: home
 <section class="home-hero">
   <div class="home-hero__media">
     <img src="{{ album.cover | relative_url }}" alt="{{ album.cover_alt }}" fetchpriority="high">
+    <span class="media-mark media-mark--hero" aria-hidden="true">@spooled.pixels</span>
     <span class="home-hero__overlay" aria-hidden="true"></span>
   </div>
   <div class="home-hero__content">
-    <p class="eyebrow hero-reveal">Independent photography journal</p>
-    <h1 class="hero-reveal"><span>Stories made</span><em>in weather.</em></h1>
+    <p class="eyebrow hero-reveal">Off-road photography / Jon Price</p>
+    <h1 class="hero-reveal"><span>Stories made</span><em>at speed.</em></h1>
     <div class="home-hero__footer hero-reveal">
-      <p>Landscapes, slow travel, and honest frames from the edges of the map.</p>
+      <p>Off-road, rallycross, and honest frames from the loud side of the desert.</p>
       <a class="round-link round-link--light" href="#work">
         <span>View work</span>
         <span aria-hidden="true">↓</span>
@@ -24,17 +25,17 @@ body_class: home
     </div>
   </div>
   <div class="home-hero__coordinates" aria-hidden="true">
-    <span>58° 38′ N</span>
-    <span>006° 04′ W</span>
+    <span>1 / 1600 SEC</span>
+    <span>DUST / LIGHT</span>
   </div>
 </section>
 
 <section class="manifesto section-shell" id="about">
-  <p class="eyebrow reveal">A practice of attention</p>
+  <p class="eyebrow reveal">A practice of timing</p>
   <div class="manifesto__content">
-    <h2 class="reveal">We photograph the feeling of a place—not just the place itself.</h2>
+    <h2 class="reveal">We photograph what speed feels like—not just the machine.</h2>
     <div class="manifesto__copy reveal">
-      <p>Still / Wild is a fictional editorial portfolio built around natural light, patient observation, and the beautiful uncertainty of the road.</p>
+      <p>Spooled Pixels is the automotive work of Jon Price—built around dust, available light, and the split second when motion becomes a photograph.</p>
       <a class="text-link" href="#work">See the latest story <span aria-hidden="true">↘</span></a>
     </div>
   </div>
@@ -49,9 +50,10 @@ body_class: home
     <p>{{ album.location }}, {{ album.year }}<br>{{ album.photos | size }} photographs</p>
   </div>
 
-  <a class="project-feature reveal" href="{{ '/albums/the-long-way-north/' | relative_url }}" aria-label="View album: {{ album.title }}">
+  <a class="project-feature reveal" href="{{ '/albums/noise-and-speed-metal/' | relative_url }}" aria-label="View album: {{ album.title }}">
     <div class="project-feature__image">
-      <img src="{{ album.photos[10].src | relative_url }}" alt="{{ album.photos[10].alt }}" loading="lazy">
+      <img src="{{ album.photos[7].src | relative_url }}" alt="{{ album.photos[7].alt }}" loading="lazy">
+      <span class="media-mark" aria-hidden="true">@spooled.pixels</span>
     </div>
     <div class="project-feature__caption">
       <p>{{ album.dek }}</p>
@@ -63,7 +65,7 @@ body_class: home
 <section class="home-carousel section-shell reveal" aria-labelledby="home-carousel-title">
   <div class="home-carousel__intro">
     <p class="eyebrow">A moving edit</p>
-    <h2 id="home-carousel-title">Six frames from<br>the road north.</h2>
+    <h2 id="home-carousel-title">Six frames from<br>the dust.</h2>
   </div>
 
   <div class="carousel carousel--editorial" data-carousel data-carousel-autoplay="true" tabindex="0" aria-roledescription="carousel" aria-label="Featured photographs">
@@ -71,6 +73,7 @@ body_class: home
       {% for photo in album.photos offset: 1 limit: 6 %}
         <figure class="carousel__slide{% if forloop.first %} is-active{% endif %}" data-carousel-slide aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}">
           <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+          <span class="media-mark media-mark--carousel" aria-hidden="true">@spooled.pixels</span>
           <figcaption>
             <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
             <p>{{ photo.caption }}</p>
@@ -95,12 +98,13 @@ body_class: home
 
 <section class="closing-frame">
   <div class="closing-frame__image reveal">
-    <img src="{{ album.photos[8].src | relative_url }}" alt="{{ album.photos[8].alt }}" loading="lazy">
+    <img src="{{ album.photos[6].src | relative_url }}" alt="{{ album.photos[6].alt }}" loading="lazy">
+    <span class="media-mark media-mark--closing" aria-hidden="true">@spooled.pixels</span>
   </div>
   <div class="closing-frame__copy section-shell">
     <p class="eyebrow reveal">The whole story</p>
-    <h2 class="reveal">Eleven photographs.<br>One long way north.</h2>
-    <a class="pill-link reveal" href="{{ '/albums/the-long-way-north/' | relative_url }}">
+    <h2 class="reveal">Eight photographs.<br>One day at full throttle.</h2>
+    <a class="pill-link reveal" href="{{ '/albums/noise-and-speed-metal/' | relative_url }}">
       Enter the album <span aria-hidden="true">↗</span>
     </a>
   </div>

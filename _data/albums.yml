@@ -1,68 +1,45 @@
 albums:
-  - slug: the-long-way-north
-    title: The Long Way North
-    location: Northern latitudes
-    year: "2026"
-    season: Late autumn
-    words_by: Still / Wild
-    cover: /assets/images/north/01-road-to-north.webp
-    cover_alt: A single road winding through steep green mountains under low cloud
-    dek: A visual journal about taking the slower road into weather, silence, and the wide-open north.
-    intro: We left before first light with a paper map, two cameras, and nowhere we absolutely needed to be.
-    story: For twelve days the road moved between black water and high country. Rain erased the horizon. Then the clouds would lift without warning, revealing a landscape so enormous it made every plan feel small. These frames are less a record of arrival than a study of everything that happened along the way.
+  - slug: noise-and-speed-metal
+    title: Noise & Speed Metal
+    location: TerraCrew
+    year: "2025"
+    season: Race day
+    words_by: Jon Price
+    cover: /assets/images/speed-metal/01-dusk-lights.webp
+    cover_alt: An off-road race truck glowing under green lights at dusk
+    dek: Eight frames from a day of big air, hard landings, dust, and the people who keep the show moving.
+    intro: The loudest machines still give you a split second of silence when all four tires leave the ground.
+    story: Speed Metal moves fast. Trucks trade dust for air, crews reset between runs, and the high desert light changes by the lap. This small edit is not the whole event—it is a first look at the moments that felt suspended inside all that noise.
     photos:
-      - src: /assets/images/north/01-road-to-north.webp
-        alt: A winding road cutting through misty green mountain ridges
-        caption: Into the weather, mile one.
-        author: Andrew Ridley
-        source: https://unsplash.com/photos/Kt5hRENuotI
-      - src: /assets/images/north/02-fjord-edge.webp
-        alt: A deep blue fjord seen from a pale rocky overlook
-        caption: Blue distance at the edge of the fjord.
-        author: Alexey Topolyanskiy
-        source: https://unsplash.com/photos/-oWyJoSqBRM
-      - src: /assets/images/north/03-copper-ridge.webp
-        alt: Red rock ridges glowing beneath a dramatic sky
-        caption: The last warm light on copper stone.
-        author: Philippe Wuyts
-        source: https://unsplash.com/photos/_h7aBovKia4
-      - src: /assets/images/north/04-midnight-water.webp
-        alt: Dark waves under a deep blue storm sky
-        caption: Midnight water, holding its breath.
-        author: Patrick Fore
-        source: https://unsplash.com/photos/V6s1cmE39XM
-      - src: /assets/images/north/05-forest-weather.webp
-        alt: Black and white layers of pine forest drifting through fog
-        caption: Weather moving through the pines.
-        author: Frances Gunn
-        source: https://unsplash.com/photos/8BmNurlVR6M
-      - src: /assets/images/north/06-aurora.webp
-        alt: Green aurora sweeping above the silhouette of a pine tree
-        caption: The sky opened after midnight.
-        author: Vashishtha Jogi
-        source: https://unsplash.com/photos/bClr95glx6k
-      - src: /assets/images/north/07-waterfall.webp
-        alt: A lone person standing before a luminous waterfall and rainbow
-        caption: Small figure, falling water.
-        author: Jared Erondu
-        source: https://unsplash.com/photos/j4PaE7E2_Ws
-      - src: /assets/images/north/08-basecamp.webp
-        alt: Yellow tents pitched in a snowy mountain basin
-        caption: Basecamp under the first snow.
-        author: Wolfgang Lutz
-        source: https://unsplash.com/photos/yOujaSETXlo
-      - src: /assets/images/north/09-still-valley.webp
-        alt: Sunlit forest and granite cliffs reflected in a calm river
-        caption: A valley still enough to mirror itself.
-        author: Christian Joudrey
-        source: https://unsplash.com/photos/mWRR1xj95hg
-      - src: /assets/images/north/10-sea-stacks.webp
-        alt: Sea stacks rising from teal water beside a rugged coast
-        caption: Where the land gives way.
-        author: Joseph Barrientos
-        source: https://unsplash.com/photos/xcC5ozHk_N8
-      - src: /assets/images/north/11-coast-road.webp
-        alt: A sunlit road tracing a steep coastline above the sea
-        caption: The long curve home.
-        author: Stefan Kunze
-        source: https://unsplash.com/photos/_SmZSuZwkHg
+      - src: /assets/images/speed-metal/01-dusk-lights.webp
+        alt: An off-road race truck glowing under green lights against a dusk sky
+        caption: Lights on. One more run before dark.
+        author: Jon Price
+      - src: /assets/images/speed-metal/02-tandem-flight.webp
+        alt: Two off-road race trucks airborne over the TerraCrew course
+        caption: Two lines, one moment in the air.
+        author: Jon Price
+      - src: /assets/images/speed-metal/03-blue-air.webp
+        alt: A blue vintage off-road truck flying over a dirt jump
+        caption: Blue truck, open sky.
+        author: Jon Price
+      - src: /assets/images/speed-metal/04-mud-charge.webp
+        alt: A red off-road truck charging through a wall of dirt
+        caption: Commitment, measured in flying earth.
+        author: Jon Price
+      - src: /assets/images/speed-metal/05-crossing-lines.webp
+        alt: A blue off-road truck jumping above a black race truck
+        caption: Crossing lines at full send.
+        author: Jon Price
+      - src: /assets/images/speed-metal/06-between-runs.webp
+        alt: Race crew gathered around an exposed off-road truck chassis
+        caption: The work between the noise.
+        author: Jon Price
+      - src: /assets/images/speed-metal/07-sunset-flight.webp
+        alt: A gold off-road pickup flying over a jump at sunset
+        caption: Last light, no lift.
+        author: Jon Price
+      - src: /assets/images/speed-metal/08-black-prerunner.webp
+        alt: A black prerunner truck soaring past Joshua trees
+        caption: Built for the moment gravity lets go.
+        author: Jon Price

@@ -11,8 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="{{ '/assets/images/north/01-road-to-north.webp' | relative_url }}" type="image/webp">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="icon" href="{{ '/assets/images/speed-metal/01-dusk-lights.webp' | relative_url }}" type="image/webp">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.asset_version }}">
 
     <script>document.documentElement.classList.add('js');</script>
   </head>
@@ -20,8 +20,8 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header" data-header>
-      <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="Still Wild home">
-        <span>Still</span><i aria-hidden="true"></i><span>Wild</span>
+      <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="Spooled Pixels home">
+        <span>Spooled</span><i aria-hidden="true"></i><span>Pixels</span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-nav-toggle>
@@ -32,7 +32,7 @@
 
       <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-nav>
         <a href="{{ '/' | relative_url }}#work">Selected work</a>
-        <a href="{{ '/albums/the-long-way-north/' | relative_url }}">Journal</a>
+        <a href="{{ '/albums/noise-and-speed-metal/' | relative_url }}">Journal</a>
         <a href="{{ '/' | relative_url }}#about">About</a>
       </nav>
     </header>
@@ -43,12 +43,12 @@
 
     <footer class="site-footer">
       <a class="wordmark wordmark--footer" href="{{ '/' | relative_url }}">
-        <span>Still</span><i aria-hidden="true"></i><span>Wild</span>
+        <span>Spooled</span><i aria-hidden="true"></i><span>Pixels</span>
       </a>
-      <p>Independent stories from the places that stay with us.</p>
+      <p>Off-road stories from the split second between dirt and sky.</p>
       <div class="footer-meta">
-        <span>Photography portfolio</span>
-        <span>© {{ 'now' | date: '%Y' }} Still / Wild</span>
+        <a href="https://www.instagram.com/spooled.pixels/" rel="noreferrer">@spooled.pixels</a>
+        <span>© {{ 'now' | date: '%Y' }} Jon Price</span>
       </div>
     </footer>
 
@@ -62,6 +62,7 @@
       </button>
       <figure class="lightbox__figure">
         <img src="" alt="" data-lightbox-image>
+        <span class="media-mark media-mark--lightbox" aria-hidden="true">@spooled.pixels</span>
         <figcaption data-lightbox-caption></figcaption>
       </figure>
       <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next>
@@ -69,6 +70,6 @@
       </button>
     </dialog>
 
-    <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.asset_version }}" defer></script>
   </body>
 </html>

@@ -8,6 +8,7 @@ layout: default
   <header class="album-hero">
     <div class="album-hero__image">
       <img src="{{ album.cover | relative_url }}" alt="{{ album.cover_alt }}" fetchpriority="high">
+      <span class="media-mark media-mark--hero" aria-hidden="true">@spooled.pixels</span>
       <span class="album-hero__wash" aria-hidden="true"></span>
     </div>
     <div class="album-hero__content">
@@ -19,7 +20,7 @@ layout: default
         <span aria-hidden="true">↓</span>
       </a>
     </div>
-    <p class="album-hero__index">No. 01 <span>—</span> Field journal</p>
+    <p class="album-hero__index">No. 01 <span>—</span> Race journal</p>
   </header>
 
   <section class="album-intro section-shell" id="album-story">
@@ -41,7 +42,7 @@ layout: default
     <div class="section-heading section-shell">
       <div>
         <p class="eyebrow">Selected frames</p>
-        <h2 id="carousel-title">Along the way</h2>
+        <h2 id="carousel-title">Above the dust</h2>
       </div>
       <p>Use the arrows or swipe to move through the edit.</p>
     </div>
@@ -51,6 +52,7 @@ layout: default
         {% for photo in album.photos limit: 6 %}
           <figure class="carousel__slide{% if forloop.first %} is-active{% endif %}" data-carousel-slide aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}">
             <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" {% unless forloop.first %}loading="lazy"{% endunless %}>
+            <span class="media-mark media-mark--carousel" aria-hidden="true">@spooled.pixels</span>
             <figcaption>
               <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
               <p>{{ photo.caption }}</p>
@@ -76,7 +78,7 @@ layout: default
   <section class="gallery section-shell" aria-labelledby="gallery-title">
     <div class="gallery__heading reveal">
       <p class="eyebrow">Full edit</p>
-      <h2 id="gallery-title">{{ album.photos | size }} moments.<br>One quiet road.</h2>
+      <h2 id="gallery-title">{{ album.photos | size }} moments.<br>Zero quiet.</h2>
     </div>
 
     <div class="gallery__grid" data-lightbox-gallery>
@@ -91,6 +93,7 @@ layout: default
           aria-label="Open image: {{ photo.alt }}"
         >
           <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+          <span class="media-mark" aria-hidden="true">@spooled.pixels</span>
           <span class="gallery__item-meta">
             <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
             <span>View frame ↗</span>
@@ -102,21 +105,11 @@ layout: default
 
   <section class="album-colophon section-shell reveal">
     <p class="eyebrow">Colophon</p>
-    <blockquote>“The farther we went, the quieter the world became.”</blockquote>
+    <blockquote>“For a fraction of a second, the whole truck hangs still.”</blockquote>
     <div>
-      <p>Images presented as a demonstration portfolio using photographs shared under the Unsplash license.</p>
+      <p>Photography and edit by Jon Price. All images © {{ album.year }} Jon Price / Spooled Pixels.</p>
       <a href="{{ '/' | relative_url }}">Back to the portfolio <span aria-hidden="true">↗</span></a>
     </div>
-    <details class="photo-credits">
-      <summary>Photography credits</summary>
-      <ol>
-        {% for photo in album.photos %}
-          <li>
-            <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-            <a href="{{ photo.source }}" rel="noreferrer">{{ photo.author }}</a>
-          </li>
-        {% endfor %}
-      </ol>
-    </details>
+    <a class="album-instagram" href="https://www.instagram.com/spooled.pixels/" rel="noreferrer">Follow @spooled.pixels <span aria-hidden="true">↗</span></a>
   </section>
 </article>
