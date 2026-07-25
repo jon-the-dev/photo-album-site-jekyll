@@ -138,6 +138,13 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# Jekyll and local browser test output
+_site/
+.jekyll-cache/
+.sass-cache/
+.jekyll-build.*/
+.playwright-mcp/
+
 # mypy
 .mypy_cache/
 .dmypy.json

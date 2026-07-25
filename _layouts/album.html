@@ -2,15 +2,121 @@
 layout: default
 ---
 
-<h1>{{ page.title }}</h1>
+{% assign album = site.data.albums.albums | where: "slug", page.album_slug | first %}
 
-<a href="{{ page.album_purchase_url }}" class="buy-album-btn">Buy This Album</a>
-
-<div class="album-images">
-  {% for image in page.images %}
-    <div class="image-item">
-      <img src="{{ image }}" alt="Album Image">
-      <a href="{{ page.image_purchase_urls[forloop.index0] }}" class="buy-photo-btn">Buy This Photo</a>
+<article class="album">
+  <header class="album-hero">
+    <div class="album-hero__image">
+      <img src="{{ album.cover | relative_url }}" alt="{{ album.cover_alt }}" fetchpriority="high">
+      <span class="album-hero__wash" aria-hidden="true"></span>
     </div>
-  {% endfor %}
-</div>
+    <div class="album-hero__content">
+      <p class="eyebrow">{{ album.location }} <span>/</span> {{ album.year }}</p>
+      <h1>{{ album.title }}</h1>
+      <p class="album-hero__dek">{{ album.dek }}</p>
+      <a class="round-link" href="#album-story" aria-label="Read the story">
+        <span>Explore</span>
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <p class="album-hero__index">No. 01 <span>—</span> Field journal</p>
+  </header>
+
+  <section class="album-intro section-shell" id="album-story">
+    <div class="album-intro__aside reveal">
+      <p class="eyebrow">The story</p>
+      <dl>
+        <div><dt>Words</dt><dd>{{ album.words_by }}</dd></div>
+        <div><dt>Images</dt><dd>{{ album.photos | size }} frames</dd></div>
+        <div><dt>Season</dt><dd>{{ album.season }}</dd></div>
+      </dl>
+    </div>
+    <div class="album-intro__copy reveal">
+      <p class="drop-cap">{{ album.intro }}</p>
+      <p>{{ album.story }}</p>
+    </div>
+  </section>
+
+  <section class="feature-carousel reveal" aria-labelledby="carousel-title">
+    <div class="section-heading section-shell">
+      <div>
+        <p class="eyebrow">Selected frames</p>
+        <h2 id="carousel-title">Along the way</h2>
+      </div>
+      <p>Use the arrows or swipe to move through the edit.</p>
+    </div>
+
+    <div class="carousel" data-carousel data-carousel-autoplay="true" tabindex="0" aria-roledescription="carousel" aria-label="Selected album photographs">
+      <div class="carousel__viewport">
+        {% for photo in album.photos limit: 6 %}
+          <figure class="carousel__slide{% if forloop.first %} is-active{% endif %}" data-carousel-slide aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}">
+            <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" {% unless forloop.first %}loading="lazy"{% endunless %}>
+            <figcaption>
+              <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <p>{{ photo.caption }}</p>
+            </figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+      <div class="carousel__controls section-shell">
+        <div class="carousel__buttons">
+          <button type="button" data-carousel-prev aria-label="Previous photograph">←</button>
+          <button type="button" data-carousel-next aria-label="Next photograph">→</button>
+        </div>
+        <div class="carousel__progress">
+          <span data-carousel-current>01</span>
+          <div class="carousel__dots" data-carousel-dots></div>
+          <span>{{ album.photos | size | at_most: 6 | prepend: '0' | slice: -2, 2 }}</span>
+        </div>
+        <p class="sr-only" aria-live="polite" data-carousel-status></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery section-shell" aria-labelledby="gallery-title">
+    <div class="gallery__heading reveal">
+      <p class="eyebrow">Full edit</p>
+      <h2 id="gallery-title">{{ album.photos | size }} moments.<br>One quiet road.</h2>
+    </div>
+
+    <div class="gallery__grid" data-lightbox-gallery>
+      {% for photo in album.photos %}
+        <button
+          class="gallery__item gallery__item--{{ forloop.index | modulo: 5 }} reveal"
+          type="button"
+          data-lightbox-item
+          data-full-src="{{ photo.src | relative_url }}"
+          data-alt="{{ photo.alt | escape }}"
+          data-caption="{{ photo.caption | escape }}"
+          aria-label="Open image: {{ photo.alt }}"
+        >
+          <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+          <span class="gallery__item-meta">
+            <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <span>View frame ↗</span>
+          </span>
+        </button>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="album-colophon section-shell reveal">
+    <p class="eyebrow">Colophon</p>
+    <blockquote>“The farther we went, the quieter the world became.”</blockquote>
+    <div>
+      <p>Images presented as a demonstration portfolio using photographs shared under the Unsplash license.</p>
+      <a href="{{ '/' | relative_url }}">Back to the portfolio <span aria-hidden="true">↗</span></a>
+    </div>
+    <details class="photo-credits">
+      <summary>Photography credits</summary>
+      <ol>
+        {% for photo in album.photos %}
+          <li>
+            <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <a href="{{ photo.source }}" rel="noreferrer">{{ photo.author }}</a>
+          </li>
+        {% endfor %}
+      </ol>
+    </details>
+  </section>
+</article>

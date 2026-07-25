@@ -1,8 +1,68 @@
 albums:
-  - title: "Summer Vacation 2024"
-    client: "John Doe"
-    s3_path: "s3-bucket-name/clients/john-doe/summer-vacation-2024"
-
-  - title: "Winter Holiday 2024"
-    client: "Bob Smith"
-    s3_path: "s3-bucket-name/clients/jane-smith/winter-holiday-2024"
+  - slug: the-long-way-north
+    title: The Long Way North
+    location: Northern latitudes
+    year: "2026"
+    season: Late autumn
+    words_by: Still / Wild
+    cover: /assets/images/north/01-road-to-north.webp
+    cover_alt: A single road winding through steep green mountains under low cloud
+    dek: A visual journal about taking the slower road into weather, silence, and the wide-open north.
+    intro: We left before first light with a paper map, two cameras, and nowhere we absolutely needed to be.
+    story: For twelve days the road moved between black water and high country. Rain erased the horizon. Then the clouds would lift without warning, revealing a landscape so enormous it made every plan feel small. These frames are less a record of arrival than a study of everything that happened along the way.
+    photos:
+      - src: /assets/images/north/01-road-to-north.webp
+        alt: A winding road cutting through misty green mountain ridges
+        caption: Into the weather, mile one.
+        author: Andrew Ridley
+        source: https://unsplash.com/photos/Kt5hRENuotI
+      - src: /assets/images/north/02-fjord-edge.webp
+        alt: A deep blue fjord seen from a pale rocky overlook
+        caption: Blue distance at the edge of the fjord.
+        author: Alexey Topolyanskiy
+        source: https://unsplash.com/photos/-oWyJoSqBRM
+      - src: /assets/images/north/03-copper-ridge.webp
+        alt: Red rock ridges glowing beneath a dramatic sky
+        caption: The last warm light on copper stone.
+        author: Philippe Wuyts
+        source: https://unsplash.com/photos/_h7aBovKia4
+      - src: /assets/images/north/04-midnight-water.webp
+        alt: Dark waves under a deep blue storm sky
+        caption: Midnight water, holding its breath.
+        author: Patrick Fore
+        source: https://unsplash.com/photos/V6s1cmE39XM
+      - src: /assets/images/north/05-forest-weather.webp
+        alt: Black and white layers of pine forest drifting through fog
+        caption: Weather moving through the pines.
+        author: Frances Gunn
+        source: https://unsplash.com/photos/8BmNurlVR6M
+      - src: /assets/images/north/06-aurora.webp
+        alt: Green aurora sweeping above the silhouette of a pine tree
+        caption: The sky opened after midnight.
+        author: Vashishtha Jogi
+        source: https://unsplash.com/photos/bClr95glx6k
+      - src: /assets/images/north/07-waterfall.webp
+        alt: A lone person standing before a luminous waterfall and rainbow
+        caption: Small figure, falling water.
+        author: Jared Erondu
+        source: https://unsplash.com/photos/j4PaE7E2_Ws
+      - src: /assets/images/north/08-basecamp.webp
+        alt: Yellow tents pitched in a snowy mountain basin
+        caption: Basecamp under the first snow.
+        author: Wolfgang Lutz
+        source: https://unsplash.com/photos/yOujaSETXlo
+      - src: /assets/images/north/09-still-valley.webp
+        alt: Sunlit forest and granite cliffs reflected in a calm river
+        caption: A valley still enough to mirror itself.
+        author: Christian Joudrey
+        source: https://unsplash.com/photos/mWRR1xj95hg
+      - src: /assets/images/north/10-sea-stacks.webp
+        alt: Sea stacks rising from teal water beside a rugged coast
+        caption: Where the land gives way.
+        author: Joseph Barrientos
+        source: https://unsplash.com/photos/xcC5ozHk_N8
+      - src: /assets/images/north/11-coast-road.webp
+        alt: A sunlit road tracing a steep coastline above the sea
+        caption: The long curve home.
+        author: Stefan Kunze
+        source: https://unsplash.com/photos/_SmZSuZwkHg

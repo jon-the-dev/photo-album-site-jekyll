@@ -1,0 +1,20 @@
+title: Still / Wild
+description: An editorial photography portfolio and album journal.
+url: ""
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - README.md
+  - node_modules
+  - package.json
+  - pnpm-lock.yaml
+  - test
+  - docs
+  - s3_album_generator.rb
+  - dynamo_s3_album_generator.rb
