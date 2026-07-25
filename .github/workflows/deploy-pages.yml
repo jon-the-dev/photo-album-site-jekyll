@@ -32,6 +32,9 @@ jobs:
       - name: Verify local asset paths
         run: make verify-local
 
+      - name: Verify optional analytics configuration
+        run: make verify-analytics
+
       - name: Build Jekyll site
         run: make build BASEURL="/photo-album-site-jekyll"
 

@@ -1,0 +1,13 @@
+{% assign google_analytics_id = site.google_analytics_id | default: '' | strip %}
+{% if google_analytics_id != '' and site.google_analytics_require_consent != false %}
+    <aside class="analytics-consent" data-analytics-consent hidden aria-label="Analytics preferences">
+      <div>
+        <p class="eyebrow">Privacy, kept simple</p>
+        <p>Allow anonymous analytics to help Spooled Pixels understand which stories people spend time with.</p>
+      </div>
+      <div class="analytics-consent__actions">
+        <button type="button" data-analytics-decline>Not now</button>
+        <button type="button" data-analytics-accept>Allow analytics</button>
+      </div>
+    </aside>
+{% endif %}

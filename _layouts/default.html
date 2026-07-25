@@ -2,17 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#171713">
     <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="{{ '/assets/images/speed-metal/01-dusk-lights.webp' | relative_url }}" type="image/webp">
+    <link rel="icon" href="{{ '/assets/images/favicon.webp' | relative_url }}" type="image/webp">
+    <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.asset_version }}">
+{% include analytics-head.html %}
 
     <script>document.documentElement.classList.add('js');</script>
   </head>
@@ -32,7 +36,11 @@
 
       <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-nav>
         <a href="{{ '/' | relative_url }}#work">Selected work</a>
-        <a href="{{ '/albums/noise-and-speed-metal/' | relative_url }}">Journal</a>
+        <a
+          href="{{ '/albums/noise-and-speed-metal/' | relative_url }}"
+          data-analytics-event="album_opened"
+          data-analytics-location="site_navigation"
+        >Journal</a>
         <a href="{{ '/' | relative_url }}#about">About</a>
       </nav>
     </header>
@@ -47,7 +55,16 @@
       </a>
       <p>Off-road stories from the split second between dirt and sky.</p>
       <div class="footer-meta">
-        <a href="https://www.instagram.com/spooled.pixels/" rel="noreferrer">@spooled.pixels</a>
+        <a
+          href="https://www.instagram.com/spooled.pixels/"
+          rel="noreferrer"
+          data-analytics-event="instagram_clicked"
+          data-analytics-location="footer"
+        >@spooled.pixels</a>
+        {% assign google_analytics_id = site.google_analytics_id | default: '' | strip %}
+        {% if google_analytics_id != '' and site.google_analytics_require_consent != false %}
+          <button class="footer-privacy" type="button" data-analytics-manage>Privacy choices</button>
+        {% endif %}
         <span>© {{ 'now' | date: '%Y' }} Jon Price</span>
       </div>
     </footer>
@@ -70,6 +87,7 @@
       </button>
     </dialog>
 
+{% include analytics-consent.html %}
     <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.asset_version }}" defer></script>
   </body>
 </html>

@@ -6,40 +6,49 @@ albums:
     season: Race day
     words_by: Jon Price
     cover: /assets/images/speed-metal/01-dusk-lights.webp
+    cover_mobile: /assets/images/speed-metal/01-dusk-lights-960.webp
     cover_alt: An off-road race truck glowing under green lights at dusk
     dek: Eight frames from a day of big air, hard landings, dust, and the people who keep the show moving.
     intro: The loudest machines still give you a split second of silence when all four tires leave the ground.
     story: Speed Metal moves fast. Trucks trade dust for air, crews reset between runs, and the high desert light changes by the lap. This small edit is not the whole event—it is a first look at the moments that felt suspended inside all that noise.
     photos:
       - src: /assets/images/speed-metal/01-dusk-lights.webp
+        mobile_src: /assets/images/speed-metal/01-dusk-lights-960.webp
         alt: An off-road race truck glowing under green lights against a dusk sky
         caption: Lights on. One more run before dark.
         author: Jon Price
       - src: /assets/images/speed-metal/02-tandem-flight.webp
+        mobile_src: /assets/images/speed-metal/02-tandem-flight-960.webp
         alt: Two off-road race trucks airborne over the TerraCrew course
         caption: Two lines, one moment in the air.
         author: Jon Price
       - src: /assets/images/speed-metal/03-blue-air.webp
+        mobile_src: /assets/images/speed-metal/03-blue-air-960.webp
         alt: A blue vintage off-road truck flying over a dirt jump
         caption: Blue truck, open sky.
         author: Jon Price
       - src: /assets/images/speed-metal/04-mud-charge.webp
+        mobile_src: /assets/images/speed-metal/04-mud-charge-960.webp
         alt: A red off-road truck charging through a wall of dirt
         caption: Commitment, measured in flying earth.
         author: Jon Price
       - src: /assets/images/speed-metal/05-crossing-lines.webp
+        mobile_src: /assets/images/speed-metal/05-crossing-lines-960.webp
         alt: A blue off-road truck jumping above a black race truck
         caption: Crossing lines at full send.
         author: Jon Price
       - src: /assets/images/speed-metal/06-between-runs.webp
+        mobile_src: /assets/images/speed-metal/06-between-runs-960.webp
         alt: Race crew gathered around an exposed off-road truck chassis
         caption: The work between the noise.
         author: Jon Price
       - src: /assets/images/speed-metal/07-sunset-flight.webp
+        mobile_src: /assets/images/speed-metal/07-sunset-flight-960.webp
         alt: A gold off-road pickup flying over a jump at sunset
         caption: Last light, no lift.
         author: Jon Price
       - src: /assets/images/speed-metal/08-black-prerunner.webp
+        mobile_src: /assets/images/speed-metal/08-black-prerunner-960.webp
         alt: A black prerunner truck soaring past Joshua trees
         caption: Built for the moment gravity lets go.
         author: Jon Price

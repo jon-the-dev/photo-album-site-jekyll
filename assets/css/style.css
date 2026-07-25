@@ -9,6 +9,8 @@
   --serif: "Bodoni Moda", "Iowan Old Style", "Times New Roman", serif;
   --sans: "Manrope", "Helvetica Neue", sans-serif;
   --page-pad: clamp(1.25rem, 3vw, 3.5rem);
+  --safe-page-left: max(var(--page-pad), env(safe-area-inset-left, 0px));
+  --safe-page-right: max(var(--page-pad), env(safe-area-inset-right, 0px));
   --header-height: 5.5rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -22,6 +24,8 @@
 html {
   scroll-behavior: smooth;
   background: var(--ink);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -34,13 +38,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body.lightbox-is-open {
+body.lightbox-is-open,
+body.navigation-is-open {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -51,6 +58,17 @@ a {
 button {
   color: inherit;
   font: inherit;
+  touch-action: manipulation;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: rgba(216, 255, 67, 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid var(--acid);
+  outline-offset: 0.25rem;
 }
 
 ::selection {
@@ -73,8 +91,8 @@ button {
 .skip-link {
   position: fixed;
   z-index: 200;
-  top: 1rem;
-  left: 1rem;
+  top: max(1rem, env(safe-area-inset-top, 0px));
+  left: max(1rem, env(safe-area-inset-left, 0px));
   padding: 0.7rem 1rem;
   color: var(--ink);
   background: var(--acid);
@@ -89,7 +107,8 @@ button {
 .section-shell {
   width: min(100%, 1440px);
   margin-inline: auto;
-  padding-inline: var(--page-pad);
+  padding-left: var(--safe-page-left);
+  padding-right: var(--safe-page-right);
 }
 
 .eyebrow {
@@ -113,10 +132,12 @@ button {
   left: 0;
   display: flex;
   width: 100%;
-  height: var(--header-height);
+  height: calc(var(--header-height) + env(safe-area-inset-top, 0px));
   align-items: center;
   justify-content: space-between;
-  padding-inline: var(--page-pad);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: var(--safe-page-left);
+  padding-right: var(--safe-page-right);
   color: var(--white);
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   transition:
@@ -127,7 +148,7 @@ button {
 }
 
 .site-header.is-scrolled {
-  height: 4.5rem;
+  height: calc(4.5rem + env(safe-area-inset-top, 0px));
   color: var(--ink);
   background: rgba(240, 238, 231, 0.9);
   border-color: var(--line);
@@ -231,8 +252,8 @@ button {
 }
 
 .media-mark--hero {
-  top: calc(var(--header-height) + 1.25rem);
-  right: var(--page-pad);
+  top: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 1.25rem);
+  right: var(--safe-page-right);
 }
 
 .media-mark--carousel {
@@ -242,7 +263,7 @@ button {
 
 .media-mark--closing {
   top: 2rem;
-  right: var(--page-pad);
+  right: var(--safe-page-right);
 }
 
 .home-hero__media img,
@@ -269,7 +290,10 @@ button {
   min-height: max(44rem, 100svh);
   flex-direction: column;
   justify-content: flex-end;
-  padding: calc(var(--header-height) + 3rem) var(--page-pad) clamp(2.25rem, 6vw, 5.5rem);
+  padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 3rem);
+  padding-right: var(--safe-page-right);
+  padding-bottom: max(clamp(2.25rem, 6vw, 5.5rem), env(safe-area-inset-bottom, 0px));
+  padding-left: var(--safe-page-left);
 }
 
 .home-hero__content > .eyebrow {
@@ -315,8 +339,8 @@ button {
 .home-hero__coordinates {
   position: absolute;
   z-index: 1;
-  right: var(--page-pad);
-  bottom: 2rem;
+  right: var(--safe-page-right);
+  bottom: max(2rem, env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
   font-size: 0.56rem;
@@ -460,7 +484,7 @@ button {
 
 .project-feature {
   display: grid;
-  width: min(100% - (var(--page-pad) * 2), 1440px);
+  width: min(calc(100% - var(--safe-page-left) - var(--safe-page-right)), 1440px);
   grid-template-columns: minmax(0, 3.2fr) minmax(18rem, 1fr);
   gap: clamp(1.5rem, 4vw, 4rem);
   align-items: end;
@@ -751,7 +775,10 @@ button {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: calc(var(--header-height) + 4rem) var(--page-pad) clamp(4rem, 9vw, 8rem);
+  padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 4rem);
+  padding-right: var(--safe-page-right);
+  padding-bottom: max(clamp(4rem, 9vw, 8rem), env(safe-area-inset-bottom, 0px));
+  padding-left: var(--safe-page-left);
 }
 
 .album-hero h1 {
@@ -773,8 +800,8 @@ button {
 .album-hero__index {
   position: absolute;
   z-index: 1;
-  right: var(--page-pad);
-  bottom: 3rem;
+  right: var(--safe-page-right);
+  bottom: max(3rem, env(safe-area-inset-bottom, 0px));
   margin: 0;
   font-size: 0.58rem;
   font-weight: 600;
@@ -850,7 +877,7 @@ button {
 }
 
 .feature-carousel .carousel__viewport {
-  width: min(100% - (var(--page-pad) * 2), 1440px);
+  width: min(calc(100% - var(--safe-page-left) - var(--safe-page-right)), 1440px);
   height: min(68vw, 56rem);
   margin-inline: auto;
 }
@@ -1046,13 +1073,16 @@ button {
 .lightbox__close {
   position: absolute;
   z-index: 2;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: max(1.5rem, env(safe-area-inset-top, 0px));
+  right: max(1.5rem, env(safe-area-inset-right, 0px));
   font-size: 1.6rem;
 }
 
 .site-footer {
-  padding: clamp(5rem, 9vw, 9rem) var(--page-pad) 2rem;
+  padding-top: clamp(5rem, 9vw, 9rem);
+  padding-right: var(--safe-page-right);
+  padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
+  padding-left: var(--safe-page-left);
   color: var(--paper);
   background: var(--ink);
 }
@@ -1076,6 +1106,7 @@ button {
 
 .footer-meta {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(240, 238, 231, 0.2);
@@ -1083,6 +1114,96 @@ button {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.footer-privacy {
+  padding: 0;
+  color: inherit;
+  border: 0;
+  background: transparent;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.footer-privacy:hover,
+.footer-privacy:focus-visible {
+  color: var(--acid);
+}
+
+.analytics-consent {
+  position: fixed;
+  z-index: 300;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  left: max(1rem, env(safe-area-inset-left, 0px));
+  display: grid;
+  width: min(calc(100% - 2rem), 52rem);
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: end;
+  margin-left: auto;
+  padding: 1.25rem;
+  color: var(--paper);
+  border: 1px solid rgba(240, 238, 231, 0.24);
+  background: rgba(23, 23, 19, 0.96);
+  box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  transform: translateY(calc(100% + 2rem));
+  transition:
+    opacity 0.28s ease,
+    transform 0.32s var(--ease);
+}
+
+.analytics-consent[hidden] {
+  display: none;
+}
+
+.analytics-consent.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.analytics-consent p {
+  max-width: 39rem;
+  margin: 0.75rem 0 0;
+  color: rgba(240, 238, 231, 0.78);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.analytics-consent .eyebrow {
+  margin: 0;
+  color: var(--acid);
+  font-size: 0.56rem;
+}
+
+.analytics-consent__actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.analytics-consent button {
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--paper);
+  border: 1px solid rgba(240, 238, 231, 0.35);
+  background: transparent;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.analytics-consent [data-analytics-accept] {
+  color: var(--ink);
+  border-color: var(--acid);
+  background: var(--acid);
 }
 
 .js .reveal {
@@ -1178,7 +1299,7 @@ button {
   }
 
   .site-header {
-    height: var(--header-height);
+    height: calc(var(--header-height) + env(safe-area-inset-top, 0px));
   }
 
   .nav-toggle {
@@ -1217,7 +1338,10 @@ button {
     align-items: flex-start;
     justify-content: center;
     gap: 1.5rem;
-    padding: 6rem var(--page-pad);
+    padding-top: calc(6rem + env(safe-area-inset-top, 0px));
+    padding-right: var(--safe-page-right);
+    padding-bottom: max(3rem, env(safe-area-inset-bottom, 0px));
+    padding-left: var(--safe-page-left);
     color: var(--paper);
     background: var(--ink);
     font-family: var(--serif);
@@ -1366,18 +1490,18 @@ button {
   }
 
   .media-mark--hero {
-    top: calc(var(--header-height) + 0.9rem);
-    right: var(--page-pad);
+    top: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 0.9rem);
+    right: var(--safe-page-right);
   }
 
   .media-mark--closing {
     top: 1rem;
-    right: var(--page-pad);
+    right: var(--safe-page-right);
   }
 
   .media-mark--lightbox {
-    top: 4.5rem;
-    right: 1rem;
+    top: calc(4.5rem + env(safe-area-inset-top, 0px));
+    right: max(1rem, env(safe-area-inset-right, 0px));
   }
 
   .lightbox[open] {
@@ -1385,30 +1509,79 @@ button {
   }
 
   .lightbox__figure {
-    padding: 4.5rem 1rem 6rem;
+    padding-top: calc(4.5rem + env(safe-area-inset-top, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+    padding-bottom: max(6rem, env(safe-area-inset-bottom, 0px));
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
   }
 
   .lightbox__nav {
     position: absolute;
     z-index: 2;
-    bottom: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom, 0px));
   }
 
   .lightbox__nav--prev {
-    left: 1rem;
+    left: max(1rem, env(safe-area-inset-left, 0px));
   }
 
   .lightbox__nav--next {
-    right: 1rem;
+    right: max(1rem, env(safe-area-inset-right, 0px));
   }
 
   .wordmark--footer {
-    font-size: clamp(2.7rem, 12vw, 4.5rem);
+    font-size: clamp(2.35rem, 11vw, 4.5rem);
   }
 
   .footer-meta {
+    align-items: flex-start;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .analytics-consent {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .analytics-consent__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .analytics-consent button {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .site-nav a,
+  .footer-meta a,
+  .footer-privacy {
+    min-height: 2.75rem;
+  }
+
+  .site-nav a,
+  .footer-meta a {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .carousel__dots button {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .gallery__item {
+    touch-action: manipulation;
+  }
+}
+
+@media (max-width: 760px) and (orientation: landscape) and (max-height: 34rem) {
+  .site-nav {
+    justify-content: flex-start;
+    overflow-y: auto;
+    font-size: clamp(2rem, 10vh, 3.5rem);
   }
 }
 
