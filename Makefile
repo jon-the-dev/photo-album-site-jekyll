@@ -23,9 +23,9 @@ test:
 
 verify-local: build
 	@test -f "$(CURDIR)/_site/assets/css/style.css"
-	@rg -q 'href="/assets/css/style.css"' "$(CURDIR)/_site/index.html"
-	@rg -q 'src="/assets/images/north/01-road-to-north.webp"' "$(CURDIR)/_site/index.html"
-	@if rg -q "/''/" "$(CURDIR)/_site"; then \
+	@grep -q 'href="/assets/css/style.css"' "$(CURDIR)/_site/index.html"
+	@grep -q 'src="/assets/images/north/01-road-to-north.webp"' "$(CURDIR)/_site/index.html"
+	@if grep -R -q "/''/" "$(CURDIR)/_site"; then \
 		echo "Local build contains a malformed empty base URL"; \
 		exit 1; \
 	fi
