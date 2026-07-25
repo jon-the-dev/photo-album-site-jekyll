@@ -29,6 +29,9 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6.0.0
 
+      - name: Verify local asset paths
+        run: make verify-local
+
       - name: Build Jekyll site
         run: make build BASEURL="/photo-album-site-jekyll"
 

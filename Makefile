@@ -1,8 +1,9 @@
 SHELL=/bin/bash
 JEKYLL_IMAGE ?= docker.io/jekyll/builder:4.2.2
 BASEURL ?=
+JEKYLL_BASEURL_ARG = $(if $(strip $(BASEURL)),--baseurl "$(BASEURL)",)
 
-.PHONY: build serve test update-contributors
+.PHONY: build serve test verify-local update-contributors
 
 build:
 	@mkdir -p "$(CURDIR)/_site"
@@ -12,13 +13,22 @@ build:
 		--volume "$(CURDIR)/_site:/srv/jekyll/_site" \
 		--workdir /srv/jekyll \
 		$(JEKYLL_IMAGE) \
-		jekyll build --disable-disk-cache --baseurl "$(BASEURL)" --destination /srv/jekyll/_site
+		jekyll build --disable-disk-cache $(JEKYLL_BASEURL_ARG) --destination /srv/jekyll/_site
 
 serve: build
 	@python3 -m http.server 4000 --bind 127.0.0.1 --directory "$(CURDIR)/_site"
 
 test:
 	@pnpm test
+
+verify-local: build
+	@test -f "$(CURDIR)/_site/assets/css/style.css"
+	@rg -q 'href="/assets/css/style.css"' "$(CURDIR)/_site/index.html"
+	@rg -q 'src="/assets/images/north/01-road-to-north.webp"' "$(CURDIR)/_site/index.html"
+	@if rg -q "/''/" "$(CURDIR)/_site"; then \
+		echo "Local build contains a malformed empty base URL"; \
+		exit 1; \
+	fi
 
 update-contributors:
 	@echo "# this file was auto generated - do not edit directly" > CONTRIBUTORS && \
